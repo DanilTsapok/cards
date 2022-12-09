@@ -43,11 +43,11 @@
     img7.height="200";
     img8.width="130";
     img8.height="200";
+   
 function func(){
-    let div0 =document.createElement('div');
-    div0.classList.add('Drive1');
+     let btn = document.querySelector('#btn');
+    let div0 =document.createElement('div'); 
     let div = document.createElement('div');
-    div.classList.add('Drive');
     div0.prepend(div);
 
 
@@ -58,9 +58,24 @@ function func(){
     // div1.prepend(div2);
 
 
+    // let obj = {
+    //     obj1: {
+    //         img,
+    //         num: '6',
+    //     },
+    //     obj2: {
+    //         card: img1,
+    //         num: '7',
+    //     },
+    // }
+    // let arrayCart=[obj.obj1, obj.obj2]
+    // console.log('arrayCart: ', arrayCart);
+    // console.log('obj: ', obj.obj1.name);
+    // console.log('obj: ', Number(obj.obj1.age));
+
     
     div0.style.height='200';
-    div0.style.width='100%'
+    div0.style.width='100%';
     div.style.width='130';
     div.style.height='200';
     div.style.visibility='hidden';
@@ -79,9 +94,23 @@ function func(){
     // div1.style.marginLeft="30%"
     document.body.append(div0);
     // document.body.append(div1);
-let img_array=[img, img1, img2, img3,img4,img5,img6,img7,img8]
+ 
+    let img_array=[img, img1, img2, img3,img4,img5,img6,img7,img8]
+    
+    img_array[0]= 6;
+    img_array[1]= 7;
+    img_array[2]= 8;
+    img_array[3]= 9;
+    img_array[4]= 10;
+    img_array[5]= 2;
+    img_array[6]= 3;
+    img_array[7]= 4;
+    img_array[8]= 11;
+    console.log(img_array);
     let a = Math.floor(Math.random()*img_array.length);
+    console.log(a);
     let b = Math.floor(Math.random()*img_array.length);
+    console.log(b);
     if (a == 0){
         div.appendChild(img);
         div.style.visibility='visible';
@@ -140,32 +169,53 @@ let img_array=[img, img1, img2, img3,img4,img5,img6,img7,img8]
         div.appendChild(img8);
         div.style.visibility='visible';
     }
-    if(a>b){
-      sum1 += 1;
+//     if(a>b){
+//       sum1 += img_array[a];
+//       document.getElementById('point1').innerHTML = sum1; 
+//       document.getElementById('point2').innerHTML = sum2; 
+//    }if(a<b){
+//       sum2 += img_array[b];
+//       document.getElementById('point1').innerHTML = sum1; 
+//       document.getElementById('point2').innerHTML = sum2; 
+//    }if (a==b){
+      sum1+= img_array[a];
+      sum2+= img_array[b];
       document.getElementById('point1').innerHTML = sum1; 
       document.getElementById('point2').innerHTML = sum2; 
-   }if(a<b){
-      sum2 += 1;
-      document.getElementById('point1').innerHTML = sum1; 
-      document.getElementById('point2').innerHTML = sum2; 
-   }if (a==b){
-      sum1+=1;
-      sum2+=1;
-      document.getElementById('point1').innerHTML = sum1; 
-      document.getElementById('point2').innerHTML = sum2; 
-   }
-      let btn = document.querySelector('#btn');
-    if(document.getElementById('point1').innerHTML == 21 || document.getElementById('point2').innerHTML == 21){
-     btn.setAttribute('disabled', true);
-   if(document.getElementById('point1').innerHTML>document.getElementById('point2').innerHTML){
-    let user = document.querySelector('#name');
-      user.setAttribute('style', ' color: yellow;',)
-   } else{
-      user = document.querySelector('#comput');
-      user.setAttribute('style', ' color: yellow;')
-   }
-   } 
-}
+     
+    if(document.getElementById('point1').innerHTML >= 21 || document.getElementById('point2').innerHTML >= 21){
+        btn.setAttribute('disabled', true);
+        if(document.getElementById('point1').innerHTML > 21||document.getElementById('point2').innerHTML > 21){
+            let user = document.querySelector('#name'); 
+            user.setAttribute('style', ' color: red;');
+             let user1 = document.querySelector('#comput');
+            user1.setAttribute('style', ' color: red;');
+        }
+        if(document.getElementById('point1').innerHTML>document.getElementById('point2').innerHTML){
+            let user = document.querySelector('#name'); 
+            user.setAttribute('style', ' color: yellow;');
+            let user1 = document.querySelector('#comput');
+            user1.setAttribute('style', ' color: red;');
+        }
+        if (document.getElementById('point1').innerHTML<document.getElementById('point2').innerHTML){
+            let user = document.querySelector('#name'); 
+            user.setAttribute('style', ' color: red;');
+           let user1 = document.querySelector('#comput');
+            user1.setAttribute('style', ' color: yellow;');
+        }
+        // if(document.getElementById('point1').innerHTML==21){
+        //     let user = document.querySelector('#name'); 
+        //     user.setAttribute('style', ' color: yellow;');
+          
+        //  }  
+        //  if(document.getElementById('point2').innerHTML==21){
+        //      let user1 = document.querySelector('#comput');
+        //     user1.setAttribute('style', ' color: yellow;');
+        //  }
+    }    
+} 
+  
+
 
 
 
